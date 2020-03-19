@@ -1,0 +1,31 @@
+﻿@{
+  ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+  <div class="img-responsive" style="max-width: 400px">
+    <img src="~/Content/Images/logo.png" />
+  </div>
+  <br />
+  <p class="lead">We want to give someone in need the shirt off your back</p>
+  <br />
+  <p>@Html.ActionLink("Learn More", "About")</p>
+</div>
+
+<div class="row">
+  <div class="col-md-4 text-center">
+    <h1><i class="fa fa-2x fa-map-signs"></i></h1>
+    <h4>Find a Location</h4>
+    <p>Bring your new or gently used shirts to one of our partnered drop off locations</p>
+  </div>
+  <div class="col-md-4 text-center">
+    <h1><i class="fa fa-2x fa-envelope-square"></i></h1>
+    <h4>Ship your Shirts</h4>
+    <p>Send us your your new or gently used shirt. We'll even cover shipping.</p>
+  </div>
+  <div class="col-md-4 text-center">
+    <h1><i class="fa fa-2x fa-credit-card"></i></h1>
+    <h4>Donate</h4>
+    <p>Cash donations are used to purchase shirts and support our operating costs.</p>
+  </div>
+</div>

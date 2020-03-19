@@ -1,0 +1,47 @@
+﻿@model Participation10_3360.Models.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <div class="clearfix">
+      @if (Model.Files.Any(x => x.FileType == Participation10_3360.Models.FileType.Photo))
+      {
+        <dt>
+          Photo
+        </dt>
+        <dd> 
+          <img src="~/File?id=@Model.Files.First(x => x.FileType == Participation10_3360.Models.FileType.Photo).FileId" alt="Profile Image" width="200" />
+        </dd>
+
+      }
+    </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

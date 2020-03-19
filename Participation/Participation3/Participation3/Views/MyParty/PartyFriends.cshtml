@@ -1,0 +1,24 @@
+﻿
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Birthday</td>
+      <td>Gender</td>
+      <td>Phone Number</td>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model.Friends)
+    {
+      <tr>
+        <td>@item.FirstName</td>
+        <td>@item.LastName</td>
+        <td>@item.BirthDate.ToShortDateString()</td>
+        <td>@item.Gender</td>
+        <td>@item.PhoneNumber</td>
+      </tr>
+    }
+  </tbody>
+</table>

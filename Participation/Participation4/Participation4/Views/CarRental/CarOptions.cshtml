@@ -1,0 +1,31 @@
+﻿@model Participation4.Models.CarViewModel
+
+@{
+    ViewBag.Title = "CarOptions";
+}
+
+<h2>CarOptions for: @Model.CityName</h2>
+<br />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Brand</td>
+      <td>Type</td>
+      <td>Miles</td>
+      <td>Restrictions</td>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var car in Model.CarList)
+    {
+    <tr>
+      <td>@car.Make</td>
+      <td>@car.BodyType</td>
+      <td>@car.Miles</td>
+      <td>@car.Restrictions</td>
+    </tr>
+    }
+
+  </tbody>
+</table>
+

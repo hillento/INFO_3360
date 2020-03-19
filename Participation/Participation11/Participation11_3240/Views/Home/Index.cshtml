@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+  <link href="~/Content/Site.css" rel="stylesheet" />
+  <title>Random Knowledge Generator</title>
+  <script src="~/Scripts/jquery-3.4.1.js"></script>
+  <script>
+    $(function () {
+      "use strict";
+      $("#btnGetKnowledge").click(getKnowledgeJson);
+      $("#ShowAddKnowledgeButton").click(showAddKnowledge);
+      $("#AddButton").click(addKnowledge);
+    });
+    function showAddKnowledge() {
+      $("#AddKnowledge").css("display", "flex");
+    }
+    function getKnowledgeJson() {
+      $("#response").text("");
+      $("#loading").css("display", "flex");
+      $.ajax({
+        type: 'GET',
+        url: 'http://localhost:52341/api/values',
+        cache: false,
+        dataType: 'text',
+        success: function (data) {
+          setTimeout(function () {
+            $("#loading").css("display", "none");
+            $("#response").text($.parseJSON(data));
+          }, 1000, null);
+        },
+        error: function (reason, ex) {
+          console.log(ex + ' ' + reason);
+        }
+      });
+
+    }
+    function addKnowledge() {
+      $("#response").text("");
+      var knowledgeText = $("#KnowledgeText").val();
+      $.ajax({
+        type: 'POST',
+        url: 'http://localhost:52341/api/values',
+        cache: false,
+        data: JSON.stringify(knowledgeText),
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("Content-type", "application/json");
+        },
+        success: function (data) {
+          alert(knowledgeText + " added");
+        },
+        error: function (reason, ex) {
+          console.log(ex + ' ' + reason);
+        }
+      });
+      $("#AddKnowledge").css("display", "none");
+
+    }
+
+  </script>
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>The Random Knowledge Generator</h1>
+    <img src="~/Content/Images/Knowledge.jpg" width="500" />
+  </div>
+  <div id="knowledge-area" class="center">
+    <input id="btnGetKnowledge" type="button" value="Display Random Knowledge" />
+    <input id="ShowAddKnowledgeButton" type="button" value="Add Random Knowledge" />
+    <img id="loading" style="display:none" src="~/Content/Images/Waiting.gif" width="200" />
+    <br />
+    <div id="response" class="center"></div>
+    <div id="AddKnowledge" class="center" style="display:none;">
+      <fieldset>
+        <legend> Enter New Random Knowledge</legend>
+        <input id="KnowledgeText" type="text" size="50" value="" />
+        <input id="AddButton" type="button" value="Add" />
+      </fieldset>
+    </div>
+
+  </div>
+</body>
+</html>

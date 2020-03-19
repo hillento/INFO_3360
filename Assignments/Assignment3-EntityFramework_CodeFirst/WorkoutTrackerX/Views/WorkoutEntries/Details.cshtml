@@ -1,0 +1,58 @@
+﻿@model WorkoutTrackerX.Models.WorkoutEntry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WorkoutEntry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Route.RouteDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.RouteDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutEntryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutEntryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkoutEntryDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkoutEntryDateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WorkoutEntryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

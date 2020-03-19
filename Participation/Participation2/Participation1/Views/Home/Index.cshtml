@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Join My Birthday Party</h1>
+    <p class="lead">It'll be fun!</p>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h2>Getting started</h2>
+        <p>
+          Kodey<br/><br />
+          Time<br/><br />
+          Jane<br/><br />
+          Randy<br/><br />
+        </p>
+    </div>
+    <div class="col-sm-4">
+        <h2>Last Guest Added</h2>
+        <p class="text-success">Randy</p>
+    </div>
+    <div class="col-sm-4">
+      <h2>Add more to my list</h2>
+      <p>Friend Name</p>
+      <form action="~/GuestList/Index" method="GET">
+        <input class="form-control" type="text" name="gstName" size="30" placeholder="Friends Name" />
+        <input class="btn btn-default" type="submit" value="Add to list" />
+      </form>
+
+    </div>
+</div>

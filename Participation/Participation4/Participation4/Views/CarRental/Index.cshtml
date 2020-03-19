@@ -1,0 +1,38 @@
+﻿@using Participation4.Models
+@model IEnumerable<City>
+
+
+@{
+    ViewBag.Title = "Index";
+  int count = 0;
+}
+
+<h2>Available Cities</h2>
+<br />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td></td>
+      <td>City Name</td>
+      <td>Address</td>
+      <td>Phone Number</td>
+      <td>Other</td>
+    </tr>
+  </thead>
+  <tbody>
+
+    @foreach (City city in Model)
+    {
+      count++;
+      <tr>
+        <td>@count</td>
+        <td>@city.CityName</td>
+        <td>@city.Address</td>
+        <td>@city.PhoneNumber</td>
+        <td><a href="~/CarRental/CarOptions?city=@city.CityName">Car Options</a></td>
+      </tr>
+    }
+
+  </tbody>
+</table>
+

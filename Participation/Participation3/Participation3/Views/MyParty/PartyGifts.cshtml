@@ -1,0 +1,19 @@
+﻿<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Gift Name</td>
+      <td>Store Location</td>
+      <td>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var gft in Model.Gifts)
+    {
+      <tr>
+        <td>@gft.Name</td>
+        <td>@gft.StoreLocation</td>
+        <td>@gft.Price.ToString("c")</td>
+      </tr>
+    }
+  </tbody>
+</table>

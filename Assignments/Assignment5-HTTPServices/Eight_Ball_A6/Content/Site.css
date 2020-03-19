@@ -1,0 +1,21 @@
+﻿body {
+  text-align: center;
+}
+
+.jumbotron {
+  background-color: gray;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+#loading {
+  position: fixed; /* forces element to stay fixed in relation to the viewport */
+  top: 50%; /* sets the top of the image 50% of the page height */
+  left: 50%; /* sets the left side of the image 50% across the page */
+  box-shadow: 0.5em 0.5em 0.7em #333;
+  border-radius: 1em;
+}

@@ -1,0 +1,58 @@
+﻿@model WorkoutTrackerX.Models.Route
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Route</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RouteDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartLongitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StopLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StopLatitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StopLongitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StopLongitude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RouteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

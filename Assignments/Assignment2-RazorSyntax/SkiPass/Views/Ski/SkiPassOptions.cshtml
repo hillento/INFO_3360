@@ -1,0 +1,30 @@
+﻿@model SkiPass.Models.SeasonPassViewModel
+
+@{
+    ViewBag.Title = "SkiPassOptions";
+}
+
+<h2>SkiPass Options for @Model.ResortName</h2>
+<br />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Pass Name</td>
+      <td>Cost</td>
+      <td>Restrictions</td>
+      <td>Bonus</td>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var pass in Model.PassList)
+    {
+    <tr>
+      <td>@pass.PassName</td>
+      <td>@pass.Cost</td>
+      <td>@pass.Restrictions</td>
+      <td>@pass.Bonus</td>
+    </tr>
+  }
+    </tbody>
+  </table>
+

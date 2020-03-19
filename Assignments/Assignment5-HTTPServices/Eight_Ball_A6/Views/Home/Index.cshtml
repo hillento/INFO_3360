@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+  <link href="~/Content/Site.css" rel="stylesheet" />
+  <title>Magic 8 ball</title>
+  <script src="~/Scripts/jquery-3.4.1.js"></script>
+  <script>
+    $(function () {
+      "use strict";
+      $("#button8").click(getAnswerJson);
+      $("#ShowAddAnswerButton").click(showAddAnswer);
+      $("#AddButton").click(addAnswer);
+    });
+    function showAddAnswer() {
+      $("#AddAnswer").css("display", "flex");
+    }
+    function getAnswerJson() {
+      $("#response").text("");
+      $("#loading").css("display", "flex");
+      $.ajax({
+        type: 'GET',
+        url: 'http://localhost:57068/api/values',
+        cache: false,
+        dataType: 'text',
+        success: function (data) {
+          setTimeout(function () {
+            $("#loading").css("display", "none");
+            $("#response").text($.parseJSON(data));
+          }, 1000, null);
+
+        },
+        error: function (reason, ex) {
+          console.log(ex + ' ' + reason);
+        }
+      });
+
+    }
+    function addAnswer() {
+      $("#response").text("");
+      var ballText = $("#AnswerText").val();
+      $.ajax({
+        type: 'POST',
+        url: 'http://localhost:57068/api/values',
+        cache: false,
+        data: JSON.stringify(ballText),
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("Content-type", "application/json");
+        },
+        success: function (data) {
+          alert(ballText + " added");
+        },
+        error: function (reason, ex) {
+          console.log(ex + ' ' + reason);
+        }
+      });
+      $("#AddAnswer").css("display", "none");
+
+    }
+  </script>
+
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>The 8-ball beckons</h1>
+    <img src="~/Content/images/Eight_Ball.jpg" width="500"/>
+  </div>
+  <div id="question-area" class="center">
+    <input id="question" type="text" size="50" value="" />
+    <input id="button8" type="button" value="Ask" />
+    <input id="ShowAddAnswerButton" type="button" value="Add Answer" />
+    <img id="loading" style="display:none" src="~/Content/images/eight_ball.gif" width="200" />
+    <br />
+    <div id="response" class="center"></div>
+    <div id="AddAnswer" class="center" style="display:none;">
+      <fieldset>
+        <legend>Enter New 8 Ball Answer</legend>
+        <input id="AnswerText" type="text" size="50" value="" />
+        <input id="AddButton" type="button" value="Add" />
+      </fieldset>
+    </div>
+
+  </div>
+</body>
+</html>

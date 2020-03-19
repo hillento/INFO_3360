@@ -1,0 +1,50 @@
+﻿@model Participation6.Models.Conviction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Conviction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Inmate.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inmate.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConvictionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConvictionDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ConvictionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

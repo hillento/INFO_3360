@@ -1,0 +1,38 @@
+﻿@using SkiPass.Models
+@model IEnumerable<SkiResort>
+
+@{
+    ViewBag.Title = "Resorts";
+  int count = 0;
+}
+
+<h2>Ski Resorts</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td></td>
+      <td>Resort Name</td>
+      <td>Location</td>
+      <td>Base Elevation</td>
+      <td>Top Elevation</td>
+      <td>Number of Lifts</td>
+      <td>Other</td>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var SkiResort in Model)
+    {
+      count++;
+    <tr>
+      <td>@count</td>
+      <td>@SkiResort.Name</td>
+      <td>@SkiResort.Location</td>
+      <td>@SkiResort.BaseElevation</td>
+      <td>@SkiResort.TopElevation</td>
+      <td>@SkiResort.NumberOfLifts</td>
+      <td><a href="SkiPassOptions?resort=@SkiResort.Name">Pass Options</a></td>
+    </tr>
+    }
+  </tbody>
+</table>
+
